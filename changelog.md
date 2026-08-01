@@ -1,5 +1,11 @@
 <h2 align="center">Archcraft : Changelogs</h2>
 
+### August 2026
+**`Major Release`**
+- Read the release notes : [Here](https://wiki.archcraft.io/news/63-news-release)
+
+#
+
 ### May 2026
 - Updated ISO profile to `archiso 88-1`
 - Latest base with new packages

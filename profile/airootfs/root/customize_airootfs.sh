@@ -112,24 +112,37 @@ done
 sed -i -e '/## Welcome-App-Run-Once/Q' /etc/skel/.config/openbox/autostart
 cat >> "/etc/skel/.config/openbox/autostart" <<- EOL
 	## Help-App-Run-Once
-	archcraft-help &
+	/usr/share/archcraft/help/run.py &
 	sed -i -e '/## Help-App-Run-Once/Q' "\$HOME"/.config/openbox/autostart
 EOL
 
 sed -i -e '/## Welcome-App-Run-Once/Q' /etc/skel/.config/bspwm/bspwmrc
 cat >> "/etc/skel/.config/bspwm/bspwmrc" <<- EOL
 	## Help-App-Run-Once
-	archcraft-help &
+	/usr/share/archcraft/help/run.py &
 	sed -i -e '/## Help-App-Run-Once/Q' "\$HOME"/.config/bspwm/bspwmrc
 EOL
 
+sed -i -e '/## Welcome-App-Run-Once/Q' /etc/skel/.config/sway/scripts/startup
+cat >> "/etc/skel/.config/sway/scripts/startup" <<- EOL
+	## Help-App-Run-Once
+	/usr/share/archcraft/help/run.py &
+	sed -i -e '/## Help-App-Run-Once/Q' "\$HOME"/.config/sway/scripts/startup
+EOL
+
 ## -------------------------------------------------------------- ##
+
+## Symlink extra scripts
+ln -s /usr/share/archcraft/scripts/* /usr/local/bin/
 
 ## Make it executable
 chmod +x /etc/skel/.screenlayout/my-layout.sh
 
 ## Fix cursor theme
-rm -rf /usr/share/icons/default
+cat > "/usr/share/icons/default/index.theme" <<- EOL
+	[Icon Theme]
+	Inherits=Qogirr
+EOL
 
 ## Update xdg-user-dirs for bookmarks in thunar and pcmanfm
 runuser -l liveuser -c 'xdg-user-dirs-update'
@@ -137,7 +150,13 @@ runuser -l liveuser -c 'xdg-user-dirs-gtk-update'
 xdg-user-dirs-update
 xdg-user-dirs-gtk-update
 
-## Delete stupid gnome backgrounds
+## Delete sway wallpapers
+swaydir='/usr/share/backgrounds/sway'
+if [[ -d "$swaydir" ]]; then
+	rm -rf "$swaydir"
+fi
+
+## Delete gnome backgrounds
 gndir='/usr/share/backgrounds/gnome'
 if [[ -d "$gndir" ]]; then
 	rm -rf "$gndir"

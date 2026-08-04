@@ -56,6 +56,7 @@ linux
 linux-atm
 linux-firmware
 linux-firmware-marvell
+linux-headers
 #livecd-sounds
 lsscsi
 lvm2
@@ -221,6 +222,7 @@ gst-libav
 gst-plugins-good
 gst-plugins-ugly
 gst-plugins-bad
+qt6-multimedia-ffmpeg
 
 ## Print
 cups
@@ -250,7 +252,7 @@ kvantum
 kvantum-qt5
 
 ## Display Manager ------------------------------
-sddm-git
+sddm
 archcraft-sddm-theme
 
 ## Desktop ------------------------------
@@ -265,6 +267,7 @@ firefox
 geany
 geany-plugins
 thunar
+thunar-shares-plugin
 thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
@@ -279,6 +282,7 @@ mplayer
 
 # Utilities
 acpi
+btrfs-assistant
 dbus-broker-units
 dialog
 dunst
@@ -286,6 +290,7 @@ galculator
 gparted
 #gtk-engine-murrine
 gnome-keyring
+grub-btrfs
 inetutils
 inotify-tools
 iptables
@@ -316,9 +321,10 @@ xmlstarlet
 xsettingsd
 yad
 
-# WMs
+# WMs/WCs
 archcraft-openbox
 archcraft-bspwm
+archcraft-sway-free
 
 # Archcraft Packages
 archcraft-cursors
@@ -368,6 +374,7 @@ libavif
 libheif
 
 ## Files
+catfish
 gvfs
 gvfs-mtp
 gvfs-afc
@@ -430,7 +437,7 @@ mkinitcpio-firmware
 networkmanager-dmenu-git
 obmenu-generator
 perl-linux-desktopfiles
-#rofi-lbonn-wayland-git
+wdisplays
 xfce-polkit
 yay
 
